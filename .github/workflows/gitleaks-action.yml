@@ -14,5 +14,5 @@ jobs:
           GITLEAKS_LICENSE: ${{ secrets.GITLEAKS_LICENSE}} # Only required for Organizations, not personal accounts.
 #          GITLEAKS_NOTIFY_USER_LIST: @octocat,@johndoe # (optional) A list of GitHub accounts that should be alerted when gitleaks-action detects a leak
 #          GITLEAKS_ENABLE_COMMENTS: true # (optional) Boolean value that turns on or off PR commenting. Default value is true.
-#          GITLEAKS_CONFIG: /config/gitleaks.toml # (optional) Path to a gitleaks configuration file.
+          GITLEAKS_CONFIG: /config/gitleaks.toml # (optional) Path to a gitleaks configuration file.
           GITLEAKS_ENABLE_UPLOAD_ARTIFACT: true # (optional) Boolean value that turns on or off uploading a sarif artifact when gitleaks detects secrets. Defaults to true.
