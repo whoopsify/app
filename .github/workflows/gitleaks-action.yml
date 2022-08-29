@@ -16,4 +16,3 @@ jobs:
 #          GITLEAKS_ENABLE_COMMENTS: true # (optional) Boolean value that turns on or off PR commenting. Default value is true.
 #          GITLEAKS_CONFIG: /config/gitleaks.toml # (optional) Path to a gitleaks configuration file.
 #          GITLEAKS_ENABLE_UPLOAD_ARTIFACT: true # (optional) Boolean value that turns on or off uploading a sarif artifact when gitleaks detects secrets. Defaults to true.
-#          FAKE_VAR: true
