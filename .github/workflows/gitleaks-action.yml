@@ -18,3 +18,23 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This variable is automatically assigned by GitHub when any action gets kicked off.
           GITLEAKS_LICENSE: ${{ secrets.GITLEAKS_LICENSE}} # Only required for Organizations, not personal accounts.
           GITLEAKS_CONFIG: configs/gitleaks.toml
+  process_report:
+    name: Process Report
+    if: ${{ always() }}
+    needs: [scan]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Report
+        uses: actions/download-artifact@v3
+        with:
+          name: gitleaks-results.sarif
+
+      - name: Show downloaded files
+        run: ls -R
+
+      - name: List secret locations
+        run: |
+          jq --raw-output \
+          '.runs[].results[].locations[].physicalLocation | "\(.artifactLocation.uri):\(.region.startLine)"' \
+          "work/app/app/results.sarif"
+
