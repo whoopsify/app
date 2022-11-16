@@ -33,17 +33,8 @@ jobs:
       - name: Show downloaded files
         run: ls -R
 
-      - name: Check for artifact
-        if: always()
-        run: |
-          if [ ! -f "work/app/app/results.sarif" ]; then
-              echo "No leak report artifact found ✅."
-              exit 0
-          fi
-
       - name: List secret locations
         run: |
           jq --raw-output \
           '.runs[].results[].locations[].physicalLocation | "\(.artifactLocation.uri):\(.region.startLine)"' \
           "work/app/app/results.sarif"
-
