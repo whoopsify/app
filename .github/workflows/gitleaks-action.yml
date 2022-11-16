@@ -13,7 +13,7 @@ jobs:
         with:
           fetch-depth: 0
       - run: wget https://raw.githubusercontent.com/zricethezav/gitleaks/master/config/gitleaks.toml
-      - uses: gitleaks/gitleaks-action@v2
+      - uses: gitleaks/gitleaks-action@demo
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This variable is automatically assigned by GitHub when any action gets kicked off.
           GITLEAKS_LICENSE: ${{ secrets.GITLEAKS_LICENSE}} # Only required for Organizations, not personal accounts.
