@@ -21,7 +21,7 @@ jobs:
           GITLEAKS_NOTIFY_USER_LIST: "@weineran"
   process_report:
     name: Process Report
-    if: ${{ always() }}
+    if: always()
     needs: [scan]
     runs-on: ubuntu-latest
     steps:
@@ -32,6 +32,14 @@ jobs:
 
       - name: Show downloaded files
         run: ls -R
+
+      - name: Check for artifact
+        if: always()
+        run: |
+          if [ ! -f "work/app/app/results.sarif" ]; then
+              echo "No leak report artifact found ✅."
+              exit 0
+          fi
 
       - name: List secret locations
         run: |
