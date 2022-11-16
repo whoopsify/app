@@ -1,11 +1,17 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"awsSdk"
+)
 
 func main() {
-    fmt.Println("Authenticating to AWS...")
+	// TODO: Create AWS session
+	fmt.Println("Authenticating to AWS...")
+	aws_token := "AKIAIMNOJVGFDXXXE4OA"
+	awsSession := awsSdk.NewSession(aws_token)
 
-    // TODO: Write AWS integration
-    aws_secret := "AKIAIMNOJVGFDXXXE4OA"
-    aws.authenticate(aws_secret)
+	// TODO: Create AWS S3 buckets
+
+	// TODO: Upload files to buckets
 }
